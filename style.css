@@ -67,7 +67,7 @@ a:hover{
 .panel {
     padding: 0 18px;
     display: none;
-    background-color: white;
+    background-color: #ccc;
     overflow: hidden;
 }
 
@@ -102,4 +102,17 @@ a:hover{
 }
 .hover:hover{
     margin: -40px -130px;
+}
+.empty-p{
+    color: #ccc;
+}
+.active, .accordion:hover {
+    background-color: #ccc; 
+}
+  
+.panel {
+padding: 0 18px;
+display: none;
+background-color: white;
+overflow: hidden;
 }
