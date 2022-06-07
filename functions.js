@@ -66,7 +66,7 @@ function createBr() {
         const accordionItem = new createDiv();
         document.querySelector("#accordionContainer").appendChild(accordionItem);
         accordionItem.className = "accordion-item";
-  
+
         // Create Header element to which we'll attach accordion button
         const accordionHeader = new createH2();
         document.querySelectorAll(".accordion-item")[i].appendChild(accordionHeader);
@@ -83,12 +83,13 @@ function createBr() {
         accordionButton.setAttribute("aria-expanded", "true");
         accordionButton.setAttribute("aria-controls", "collapse"+(i+1));
         accordionButton.innerHTML = sites[i].name;
+
   
         // Create Div element which will hold new accordion Item
         const collapseDiv = new createDiv();
         document.querySelectorAll(".accordion-item")[i].appendChild(collapseDiv);
         collapseDiv.id = "collapse"+(i+1);
-        collapseDiv.className = "accordion-collapse collapse show";
+        collapseDiv.className = "accordion-collapse";
         collapseDiv.setAttribute("aria-labelledby", "heading"+(i+1));
         collapseDiv.setAttribute("data-bs-parent", "accordionExample");
   
@@ -118,43 +119,21 @@ function createBr() {
   
   // Function to filter Sites by searching for Names
   function searchSites() {
-    var input, filter, item, button, a, i, txtValue;
+    var input, filter, button, a, i, txtValue;
     input = document.querySelector("#search");
     filter = input.value.toUpperCase();
-    item = document.querySelector(".accordion-item");
-    button = item.querySelectorAll(".accordion-item .accordion-header .accordion-button");
+    button = document.querySelectorAll(".accordion-item .accordion-header .accordion-button");
     for (i = 0; i < button.length; i++) {
         a = button[i];
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             button[i].style.display = "";
             document.querySelectorAll(".accordion-body")[i].style.display = "";
-            // document.querySelector(".empty-p").innerHTML = "";
         } else {
             button[i].style.display = "none";
             document.querySelectorAll(".accordion-body")[i].style.display = "none";
-            // document.querySelector(".empty-p").innerHTML = "No results";
         }
     }
   }
 
-    
-    var h;
-    var acc = document.querySelectorAll(".accordion-button");
 
-    for (h = 0; h < acc.length; h++) {
-        acc[h].addEventListener("click", function() {
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.classList.toggle("active");
-
-            /* Toggle between hiding and showing the active panel */
-            var panel = document.querySelectorAll(".accordion-header").nextElementSibling;
-            if (panel[h].style.display === "block") {
-            panel[h].style.display = "none";
-            } else {
-            panel[h].style.display = "block";
-            }
-        });
-    }
-  

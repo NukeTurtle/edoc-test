@@ -64,55 +64,12 @@ a:hover{
 .active, .accordion:hover {
     background-color: #ccc; 
 }
-.panel {
-    padding: 0 18px;
-    display: none;
-    background-color: #ccc;
-    overflow: hidden;
-}
-
-.site_name{
-    font-size: 2em;
-    margin: 20px 0;
-    display: flex;
-    justify-content: space-between;
-}
-.site_name::after{
-    content: "▲";
-    width: 10px;
-    height: 10px;
-    color: hsl(14, 88%, 65%);
-}
-.site_name.special::after{
-    content: "▲";
-    transform: rotate(180deg);
-}
-.site_name:hover{
-    font-weight: 700;
-    color: hsl(14, 88%, 65%);
-    cursor: pointer;
-}
 .active{
     font-weight: 700;
     color: hsl(237, 12%, 33%);
 }
-.answer{
-    display: none;
-    padding-bottom: 20px;
-}
-.hover:hover{
-    margin: -40px -130px;
-}
-.empty-p{
-    color: #ccc;
-}
-.active, .accordion:hover {
-    background-color: #ccc; 
-}
-  
-.panel {
-padding: 0 18px;
-display: none;
-background-color: white;
-overflow: hidden;
+.accordion-collapse {
+    padding: 0 18px;
+    display: block;
+    overflow: hidden;
 }
