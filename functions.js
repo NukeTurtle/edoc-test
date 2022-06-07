@@ -102,8 +102,23 @@ function createBr() {
         const spanAddress = new createP();
         document.querySelectorAll(".accordion-body")[i].appendChild(spanAddress);
         spanAddress.className = "span-address";
-        spanAddress.innerHTML = sites[i].address;
-        console.log(sites[i].address);
+        
+        // Clean and prepare Address data for consumption // 
+        // Convert String to Array
+        var convertToArray = sites[i].address;
+        const arrayData = convertToArray.split(",");
+        // Remove empty values from Array
+        const cleanString = arrayData.filter(element => {
+            if (Object.keys(element).length !== 0) {
+            return true;
+            }
+        })
+        // Convert cleaned Array back to a String
+        result = cleanString.join();
+
+        // Display cleaner Data
+        spanAddress.innerHTML = result;
+        console.log(result);
 
         for (x = 0; x < sites[i].projects.length; x++){
             console.log(sites[i].projects[x].name);
