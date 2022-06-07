@@ -28,6 +28,7 @@ function createIframe() {
 function createBr() {
     return document.createElement("br");
 }
+
   var i = 0;
   var myHeaders = new Headers();
   let myToken; // Define variable which will hold the secret key later on
@@ -83,7 +84,6 @@ function createBr() {
         accordionButton.setAttribute("aria-expanded", "true");
         accordionButton.setAttribute("aria-controls", "collapse"+(i+1));
         accordionButton.innerHTML = sites[i].name;
-
   
         // Create Div element which will hold new accordion Item
         const collapseDiv = new createDiv();
@@ -136,4 +136,17 @@ function createBr() {
     }
   }
 
-
+  // Function to toggle Sites Accordion
+setTimeout(function() {
+    document.querySelectorAll(".accordion-header").forEach(item => {
+        item.addEventListener("click", function() {
+            if (item.nextElementSibling.style.display === "none" || item.nextElementSibling.style.display === "") {
+                item.nextElementSibling.style.display = "block";
+                item.querySelector(".accordion-button").classList.toggle("collapsed");
+            } else {
+                item.nextElementSibling.style.display = "none";
+                item.querySelector(".accordion-button").classList.toggle("collapsed");
+            }
+        })
+    })
+ }, 1500);
